@@ -17,6 +17,12 @@
            android:layout_height="wrap_content"
            android:text="Restart"
            android:id="@+id/restart" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Parejas: 0"
+           android:id="@+id/textView" />
    </LinearLayout>
 
     <LinearLayout

@@ -7,11 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,restart;
     ArrayList seleccionados;
@@ -22,139 +23,45 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Button b1=(Button) findViewById(R.id.button1);
-        final Button b2=(Button) findViewById(R.id.button2);
-        final Button b3=(Button) findViewById(R.id.button3);
-        final Button b4=(Button) findViewById(R.id.button4);
-        final Button b5=(Button) findViewById(R.id.button5);
-        final Button b6=(Button) findViewById(R.id.button6);
-        final Button b7=(Button) findViewById(R.id.button7);
-        final Button b8=(Button) findViewById(R.id.button8);
-        final Button b9=(Button) findViewById(R.id.button9);
-        final Button b10=(Button) findViewById(R.id.button10);
-        final Button b11=(Button) findViewById(R.id.button11);
-        final Button b12=(Button) findViewById(R.id.button12);
-        final Button b13=(Button) findViewById(R.id.button13);
-        final Button b14=(Button) findViewById(R.id.button14);
-        final Button b15=(Button) findViewById(R.id.button15);
-        final Button b16=(Button) findViewById(R.id.button16);
-        final Button restart=(Button) findViewById(R.id.restart);
+        b1=(Button) findViewById(R.id.button1);
+        b2=(Button) findViewById(R.id.button2);
+        b3=(Button) findViewById(R.id.button3);
+        b4=(Button) findViewById(R.id.button4);
+        b5=(Button) findViewById(R.id.button5);
+        b6=(Button) findViewById(R.id.button6);
+        b7=(Button) findViewById(R.id.button7);
+        b8=(Button) findViewById(R.id.button8);
+        b9=(Button) findViewById(R.id.button9);
+        b10=(Button) findViewById(R.id.button10);
+        b11=(Button) findViewById(R.id.button11);
+        b12=(Button) findViewById(R.id.button12);
+        b13=(Button) findViewById(R.id.button13);
+        b14=(Button) findViewById(R.id.button14);
+        b15=(Button) findViewById(R.id.button15);
+        b16=(Button) findViewById(R.id.button16);
+        restart=(Button) findViewById(R.id.restart);
         seleccionados=new ArrayList<Button>();
         completados=0;
         restart.setText(R.string.restart);
 
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b1.setText(R.string.button1);
-                seleccionados.add(b1);
-            }
-        });
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b2.setText(R.string.button2);
-                seleccionados.add(b2);
-            }
-        });
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b3.setText(R.string.button3);
-                seleccionados.add(b3);
-            }
-        });
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b4.setText(R.string.button4);
-                seleccionados.add(b4);
-            }
-        });
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b5.setText(R.string.button5);
-                seleccionados.add(b5);
-            }
-        });
-        b6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b6.setText(R.string.button6);
-                seleccionados.add(b6);
-            }
-        });
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b7.setText(R.string.button7);
-                seleccionados.add(b7);
-            }
-        });
-        b8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b8.setText(R.string.button8);
-                seleccionados.add(b8);
-            }
-        });
-        b9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b9.setText(R.string.button9);
-                seleccionados.add(b9);
-            }
-        });
-        b10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b10.setText(R.string.button10);
-                seleccionados.add(b10);
-            }
-        });
-        b11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b11.setText(R.string.button11);
-                seleccionados.add(b11);
-            }
-        });
-        b12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b12.setText(R.string.button12);
-                seleccionados.add(b12);
-            }
-        });
-        b13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b13.setText(R.string.button13);
-                seleccionados.add(b13);
-            }
-        });
-        b14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b14.setText(R.string.button14);
-                seleccionados.add(b14);
-            }
-        });
-        b15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b15.setText(R.string.button15);
-                seleccionados.add(b15);
-            }
-        });
-        b16.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b16.setText(R.string.button16);
-                seleccionados.add(b16);
-            }
-        });
+        b1.setOnClickListener(this);
+        b2.setOnClickListener(this);
+        b3.setOnClickListener(this);
+        b4.setOnClickListener(this);
+        b5.setOnClickListener(this);
+        b6.setOnClickListener(this);
+        b7.setOnClickListener(this);
+        b8.setOnClickListener(this);
+        b9.setOnClickListener(this);
+        b10.setOnClickListener(this);
+        b11.setOnClickListener(this);
+        b12.setOnClickListener(this);
+        b13.setOnClickListener(this);
+        b14.setOnClickListener(this);
+        b15.setOnClickListener(this);
+        b16.setOnClickListener(this);
+
+
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -202,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
                 opcion1.setEnabled(false);
                 opcion2.setEnabled(false);
                 completados++;
+                TextView puntaje= (TextView) findViewById(R.id.textView);
+                puntaje.setText("Parejas: "+completados);
                 if (completados==8){
                     Toast.makeText(this, "Felicitaciones! Ha ganado.",Toast.LENGTH_LONG).show();
 
@@ -218,4 +127,83 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+        switch(v.getId()) {
+
+            case R.id.button1:
+
+                b1.setText(R.string.button1);
+                seleccionados.add(b1);
+                break;
+            case R.id.button2:
+                b2.setText(R.string.button2);
+                seleccionados.add(b2);
+
+                break;
+            case R.id.button3:
+                b3.setText(R.string.button3);
+                seleccionados.add(b3);
+                break;
+            case R.id.button4:
+                b4.setText(R.string.button4);
+                seleccionados.add(b4);
+                break;
+            case R.id.button5:
+                b5.setText(R.string.button5);
+                seleccionados.add(b5);
+                break;
+            case R.id.button6:
+                b6.setText(R.string.button6);
+                seleccionados.add(b6);
+                break;
+            case R.id.button7:
+                b7.setText(R.string.button7);
+                seleccionados.add(b7);
+                break;
+            case R.id.button8:
+                b8.setText(R.string.button8);
+                seleccionados.add(b8);
+                break;
+            case R.id.button9:
+                b9.setText(R.string.button9);
+                seleccionados.add(b9);
+                break;
+            case R.id.button10:
+                b10.setText(R.string.button10);
+                seleccionados.add(b10);
+                break;
+            case R.id.button11:
+                b11.setText(R.string.button11);
+                seleccionados.add(b11);
+                break;
+            case R.id.button12:
+                b12.setText(R.string.button12);
+                seleccionados.add(b12);
+                break;
+            case R.id.button13:
+                b13.setText(R.string.button13);
+                seleccionados.add(b13);
+                break;
+            case R.id.button14:
+                b14.setText(R.string.button14);
+                seleccionados.add(b14);
+                break;
+            case R.id.button15:
+                b15.setText(R.string.button15);
+                seleccionados.add(b15);
+                break;
+            case R.id.button16:
+                b16.setText(R.string.button16);
+                seleccionados.add(b16);
+                break;
+        }
+        try {
+            match();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
