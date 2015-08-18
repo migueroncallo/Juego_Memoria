@@ -20,4 +20,5 @@
     <string name="button14">3</string>
     <string name="button15">2</string>
     <string name="button16">1</string>
+    <string name="restart">Restart</string>
 </resources>
